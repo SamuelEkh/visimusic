@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/visimusic/static/css/main.6c904213.chunk.css",
+    "main.js": "/visimusic/static/js/main.28715067.chunk.js",
+    "main.js.map": "/visimusic/static/js/main.28715067.chunk.js.map",
+    "runtime-main.js": "/visimusic/static/js/runtime-main.4f7dffb3.js",
+    "runtime-main.js.map": "/visimusic/static/js/runtime-main.4f7dffb3.js.map",
+    "static/js/2.0c507759.chunk.js": "/visimusic/static/js/2.0c507759.chunk.js",
+    "static/js/2.0c507759.chunk.js.map": "/visimusic/static/js/2.0c507759.chunk.js.map",
+    "index.html": "/visimusic/index.html",
+    "static/css/main.6c904213.chunk.css.map": "/visimusic/static/css/main.6c904213.chunk.css.map",
+    "static/js/2.0c507759.chunk.js.LICENSE.txt": "/visimusic/static/js/2.0c507759.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4f7dffb3.js",
+    "static/js/2.0c507759.chunk.js",
+    "static/css/main.6c904213.chunk.css",
+    "static/js/main.28715067.chunk.js"
+  ]
+}
