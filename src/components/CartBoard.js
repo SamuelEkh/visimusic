@@ -27,7 +27,7 @@ const CartBoard = ({cartProducts, username, getCart, handleBackground, handleFet
     </div>
     <h4 className="cart__total-amount-title">total</h4>
     <p className="cart__total-amount">{totalAmount} SEK</p>
-    <Link style={linkStyle} to="/checkout" className='checkout__link' onClick={() => {clickHandler()}}><button className="checkout__link-button">Checkout</button></Link>
+    <Link style={linkStyle} to="/visimusic/checkout" className='checkout__link' onClick={() => {clickHandler()}}><button className="checkout__link-button">Checkout</button></Link>
     </>
   )
 }

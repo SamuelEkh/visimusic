@@ -68,7 +68,7 @@ const Recommendation = ({handleOpen, handleClose, recoAnchorEl, handleFetchAll, 
             <span className="reco__option" onClick={clickHandler}>Studio</span>
             <span className="reco__option" onClick={clickHandler}>Sport</span>
             {options.length > 0 ?
-              <Link to="/recommendation" className="reco__button-searchcontainer"> <button className="reco__button-search" onClick={handleFetchAndClose}>Search</button></Link>
+              <Link to="/visimusic/recommendation" className="reco__button-searchcontainer"> <button className="reco__button-search" onClick={handleFetchAndClose}>Search</button></Link>
             : <button className="reco__button-search reco__button-searchcontainer" onClick={animationHandler}>
               <div className="reco__button--warning">Please select at least one option</div>
               Search</button>

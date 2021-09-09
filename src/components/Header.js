@@ -19,7 +19,7 @@ const Header = ({handleProductState, cartProducts, username, headerBackground, h
           <Nav handleHamburger={handleHamburger} hamburgerOpen={hamburgerOpen}/>
           <AccountButton username={username} handleBackground={handleBackground} setHamburgerOpen={setHamburgerOpen}/>
           <CartButton cartProducts={cartProducts} username={username} handleBackground={handleBackground} setHamburgerOpen={setHamburgerOpen}/>
-          <Link style={linkStyle} to="/" className="header__logo" onClick={clickHandler}><img className="header__logo--pic" src="https://i.postimg.cc/43LH8zv1/logo-transparent-without-V.png" alt='Visishop logo'></img></Link>
+          <Link style={linkStyle} to="/visimusic" className="header__logo" onClick={clickHandler}><img className="header__logo--pic" src="https://i.postimg.cc/43LH8zv1/logo-transparent-without-V.png" alt='Visishop logo'></img></Link>
           </div>
         </div>
     )

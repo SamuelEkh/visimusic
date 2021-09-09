@@ -31,7 +31,7 @@ const Account = ({handleLogout, cookies, name, username, email}) => {
       <div className="account-info__email">{email}</div>
     </div>
     <button onClick={handleClick} className="logout-button">Logout</button>
-    {!cookies.token && <Redirect to="/" /> }
+    {!cookies.token && <Redirect to="/visimusic" /> }
     </>
   )
 }

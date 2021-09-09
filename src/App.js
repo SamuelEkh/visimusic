@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import { CookiesProvider } from 'react-cookie';
+import Cookies from 'js-cookie';
 import Header from './components/Header';
 import Browse from './components/Browse';
 import Recommendation from './components/Recommendation';
@@ -53,6 +54,8 @@ const App = () => {
   }
 
   const handleLogout = () => {
+    Cookies.remove('token');
+    Cookies.remove('user');
     removeCookie('token');
   }
 
@@ -60,7 +63,7 @@ const App = () => {
     if (cookies.token) {
       const data = await JSON.parse(atob(cookies.token.split('.')[1]));
       const cartUser = data.username;
-      const request = await fetch(`/api/carts/${cartUser}`, {
+      const request = await fetch(`${process.env.REACT_APP_SERVER}/visimusic/carts/${cartUser}`, {
         method: 'GET'
       })
       const cart = await request.json()
@@ -93,20 +96,20 @@ const App = () => {
   };
 
   const handleFetchGroup = async (productGroup) => {
-    const products = await fetch(`/api/products/productGroup/${productGroup}`);
+    const products = await fetch(`${process.env.REACT_APP_SERVER}/visimusic/products/productGroup/${productGroup}`);
     const response = await products.json();
     setProducts(response);
   }
 
   const handleFetchAll = async (searchOptions) => {
     setOptions(searchOptions);
-    const products = await fetch('/api/products');
+    const products = await fetch(`${process.env.REACT_APP_SERVER}/visimusic/products`);
     const response = await products.json();
     setProducts(response);
   }
 
   const handleFetchSingle = async (id) => {
-      const product = await fetch(`/api/products/${id}`);
+      const product = await fetch(`${process.env.REACT_APP_SERVER}/visimusic/products/${id}`);
       const response = await product.json();
       setProducts(response);
   }
@@ -145,7 +148,7 @@ const App = () => {
     <Router>
       <main className="main-content">
         <Header handleProductState={handleProductState} cookies={cookies} cartProducts={cartProducts} username={username} getCart={getCart} headerBackground={headerBackground} handleBackground={handleBackground} hamburgerOpen={hamburgerOpen} handleHamburger={handleHamburger} setHamburgerOpen={setHamburgerOpen}/>
-        <Route exact path="/" render={() => (
+        <Route exact path="/visimusic" render={() => (
           <>
             <Browse handleOpen={handleOpen} handleClose={handleClose} handleFetchGroup={handleFetchGroup} browseAnchorEl={browseAnchorEl} handleBackground={handleBackground} handleHeaderBackground={handleHeaderBackground} setHamburgerOpen={setHamburgerOpen}/>
             <Recommendation handleOpen={handleOpen} handleClose={handleClose} handleFetchAll={handleFetchAll} recoAnchorEl={recoAnchorEl} handleOptions={handleOptions} handleBackground={handleBackground} handleHeaderBackground={handleHeaderBackground} setHamburgerOpen={setHamburgerOpen}/>
@@ -153,61 +156,61 @@ const App = () => {
           </>
         )}
         />
-        <Route path="/products" render={() => (
+        <Route path="/visimusic/products" render={() => (
           <section className="product-board">
             <Backbutton handleProductState={handleProductState} prevProductState={prevProductState} />
             <ProductsBoard products={products} cookies={cookies} username={username} getCart={getCart} handleFetchSingle={handleFetchSingle} setProducts={setProducts} handleProductState={handleProductState} setHamburgerOpen={setHamburgerOpen} setPrevProductState={setPrevProductState}/>
           </section>
         )} />
-        <Route path="/recommendation" render={() => (
+        <Route path="/visimusic/recommendation" render={() => (
           <section className="recoboard">
             <Backbutton handleProductState={handleProductState} prevProductState={prevProductState}/>
             <RecoBoard products={products} options={options} setProducts={setProducts} setOptions={setOptions} username={username} getCart={getCart} handleFetchSingle={handleFetchSingle} setHamburgerOpen={setHamburgerOpen} setPrevProductState={setPrevProductState}/>
           </section>
         )} />
-        <Route path="/login" render={() => (
+        <Route path="/visimusic/login" render={() => (
           <>
           <Backbutton />
           <Login handleUserCookie={handleUserCookie} cookies={cookies} username={username} handleUsername={handleUsername} getCart={getCart}/>
           </>
           )} />
-        <Route path="/register" render={() => (
+        <Route path="/visimusic/register" render={() => (
           <>
           <Backbutton />
           <Register handleUserCookie={handleUserCookie} cookies={cookies} thisUsername={username} />
           </>
           )} />
-        <Route path="/cart" render={() => (
+        <Route path="/visimusic/cart" render={() => (
           <>
           <Backbutton />
           <CartBoard username={username} cartProducts={cartProducts} getCart={getCart} handleBackground={handleBackground} handleFetchSingle={handleFetchSingle} handleProductState={handleProductState} setHamburgerOpen={setHamburgerOpen}/>
           </>
           )} />
-        <Route path="/account" render={() => (
+        <Route path="/visimusic/account" render={() => (
           <>
           <Backbutton />
           <Account handleLogout={handleLogout} cookies={cookies} username={username} email={email} name={name}/>
           </>
         )} />
-        <Route path="/checkout" render={() => (
+        <Route path="/visimusic/checkout" render={() => (
           <>
           <Backbutton />
           <Checkout cartProducts={cartProducts}/>
           </>
         )} />
-        <Route path="/contact" render={() => (
+        <Route path="/visimusic/contact" render={() => (
           <>
           <Backbutton />
           <Contact handleBackground={handleBackground} handleHeaderBackground={handleHeaderBackground}/>
           </>
         )} />
-        <Route path="/about" render={() => (
+        <Route path="/visimusic/about" render={() => (
           <>
           <Backbutton />
           <About handleBackground={handleBackground} handleHeaderBackground={handleHeaderBackground}/>
           </>
         )} />
-        <Route path="/product" render={() => (
+        <Route path="/visimusic/product" render={() => (
           <>
           <Backbutton handleProductState={handleProductState} prevProductState={prevProductState}/>
           <SingleProduct products={products} setProducts={setProducts} username={username} getCart={getCart} handleHeaderBackground={handleHeaderBackground}/>

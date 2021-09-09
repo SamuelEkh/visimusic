@@ -1,4 +1,5 @@
 import '../style/Login.css';
+import Cookies from 'js-cookie';
 import { Link, Redirect } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -19,7 +20,7 @@ const Login = ({username, handleUsername}) => {
   const loginUser = async (e) => {
     e.preventDefault();
 
-    const result = await fetch('/api/users/login', {
+    const result = await fetch(`${process.env.REACT_APP_SERVER}/visimusic/users/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -28,6 +29,11 @@ const Login = ({username, handleUsername}) => {
         username: userLogin, password
       })
     });
+
+    const response = await result.json();
+    const token = response.token;
+
+    Cookies.set('token', token);
 
     // if(result.status === 'ok') {
 
@@ -48,7 +54,7 @@ const Login = ({username, handleUsername}) => {
 
   return (
     <>
-    {username && <Redirect to="/" /> }
+    {username && <Redirect to="/visimusic" /> }
     <section className="login">
       <h2 className="login__header">Login</h2>
       <form className="login__form">
@@ -56,7 +62,7 @@ const Login = ({username, handleUsername}) => {
         <input type="password" placeholder="password" className="login__password" onChange={handleChange} />
         <input type="submit" value="Login" className="login__button" onClick={loginUser} />
       </form>
-      <Link style={linkStyle} to="/register"><div className="login__register">Not a member? <div className="login__register--signup">Sign up!</div></div></Link>
+      <Link style={linkStyle} to="/visimusic/register"><div className="login__register">Not a member? <div className="login__register--signup">Sign up!</div></div></Link>
     </section>
   </>
   )

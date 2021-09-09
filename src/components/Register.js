@@ -13,7 +13,7 @@ const Register = ({handleUserCookie, cookies, thisUsername}) => {
   const registerUser = async (e) => {
     e.preventDefault();
 
-    const result = await fetch('/api/users/register', {
+    const result = await fetch(`${process.env.REACT_APP_SERVER}/visimusic/users/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -22,6 +22,11 @@ const Register = ({handleUserCookie, cookies, thisUsername}) => {
         name, email, username, password
       })
     });
+
+    const response = await result.json();
+    const newToken = response.token;
+
+    Cookies.set('token', newToken);
 
     if(result.status === 'ok') {
 
@@ -58,7 +63,7 @@ const Register = ({handleUserCookie, cookies, thisUsername}) => {
 
   return (
     <>
-    {thisUsername && <Redirect to="/" /> }
+    {thisUsername && <Redirect to="/visimusic" /> }
     <section className="register">
       <h2 className="register__header">Sign up</h2>
       <form className="register__form">

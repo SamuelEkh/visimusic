@@ -22,7 +22,7 @@ const RecoProducts = ({productGroup, product, username, getCart, handleFetchSing
 
       singleItem.idInCart = uuid();
   
-      await fetch('/api/carts', {
+      await fetch(`${process.env.REACT_APP_SERVER}/visimusic/carts`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
@@ -52,7 +52,7 @@ const RecoProducts = ({productGroup, product, username, getCart, handleFetchSing
           if (!productArr.includes(item)) {
             productArr.push(item);
             return <article key={item._id} className="recoproduct">
-              <Link to={'/product'}>
+              <Link to={'/visimusic/product'}>
                 <div onClick={() => {clickHandler(item._id)}} className="recoproduct__img-container">
                 <img className="recoproduct__img" src={item.img} alt={item.name}/>
                 </div>
@@ -62,7 +62,7 @@ const RecoProducts = ({productGroup, product, username, getCart, handleFetchSing
               <div className="recoproduct__price">{item.price}</div>
               {username ? 
                 <button onClick={() => addToCart(item)} className="recoproduct__add">Add to cart</button> 
-                : <Link to={'/login'}><button className="recoproduct__add">Add to cart</button></Link>
+                : <Link to={'/visimusic/login'}><button className="recoproduct__add">Add to cart</button></Link>
               }
             </article>
           }

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Cart = ({name, item, username, getCart, handleFetchSingle, handleProductState, setHamburgerOpen}) => {
   const removeFromCart = async (e) => {
-    await fetch('/api/carts', {
+    await fetch(`${process.env.REACT_APP_SERVER}/visimusic/carts`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
@@ -26,7 +26,7 @@ const Cart = ({name, item, username, getCart, handleFetchSingle, handleProductSt
 
   return (
     <article className="cart__product">
-      <Link to="/product" onClick={clickHandler}>
+      <Link to="/visimusic/product" onClick={clickHandler}>
       <div className="cart__img-container">
         <img className="cart__img" src={item.img} alt={item.name}/>
       </div>

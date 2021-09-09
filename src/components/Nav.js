@@ -7,8 +7,8 @@ const Nav = ({handleHamburger, hamburgerOpen}) => {
     <div className="navigation-container">
       <div className="navigation">
         <ul>
-          <Link style={linkStyle} to="/about" onClick={handleHamburger} className="navigation__about"><li>About us</li></Link>
-          <Link style={linkStyle} to="/contact" onClick={handleHamburger}><li>Contact</li></Link>
+          <Link style={linkStyle} to="/visimusic/about" onClick={handleHamburger} className="navigation__about"><li>About us</li></Link>
+          <Link style={linkStyle} to="/visimusic/contact" onClick={handleHamburger}><li>Contact</li></Link>
         </ul>
 
         <div className="hamburger-container" onClick={handleHamburger}>

@@ -32,7 +32,7 @@ const addToCart = async () => {
 
   item.idInCart = uuid();
 
-  await fetch('/api/carts', {
+  await fetch(`${process.env.REACT_APP_SERVER}/visimusic/carts`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
@@ -57,7 +57,7 @@ const addToCart = async () => {
       <p className="single-product__price">{price}</p>
       {username ? 
       <button onClick={addToCart} className="single-product__add-button">ADD TO CART</button>
-      : <Link to={'/login'}><button className="single-product__add-button">ADD TO CART</button></Link>}
+      : <Link to={'/visimusic/login'}><button className="single-product__add-button">ADD TO CART</button></Link>}
       <div className="single-product__desc-container">
         <p className="single-product__desc">{desc}</p>
         {Object.entries(specs).map(spec => (

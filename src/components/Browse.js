@@ -41,14 +41,14 @@ const Browse = ({handleOpen, handleClose, browseAnchorEl, handleFetchGroup, hand
                 horizontal: 'center',
             }}
             >
-            <Link style={linkStyle} to="/products" className="browse__item browse__item--headphones" onClick={() => {clickHandleFetch('headphones')}}><span>Headphones</span></Link>
-            <Link style={linkStyle} to="/products" className="browse__item browse__item--speakers" onClick={() => {clickHandleFetch('speakers')}}><span>Speakers</span></Link>
-            <Link style={linkStyle} to="/products" className="browse__item browse__item--speakers" onClick={() => {clickHandleFetch('guitars')}}><span>Guitars</span></Link>
-            <Link style={linkStyle} to="/products" className="browse__item browse__item--speakers" onClick={() => {clickHandleFetch('violins')}}><span>Violins</span></Link>
-            <Link style={linkStyle} to="/products" className="browse__item browse__item--speakers" onClick={() => {clickHandleFetch('cellos')}}><span>Cellos</span></Link>
-            <Link style={linkStyle} to="/products" className="browse__item browse__item--keyboards" onClick={() => {clickHandleFetch('keyboards')}}><span>Keyboards</span></Link>
-            <Link style={linkStyle} to="/products" className="browse__item browse__item--microphones" onClick={() => {clickHandleFetch('microphones')}}><span>Microphones</span></Link>
-            <Link style={linkStyle} to="/products" className="browse__item browse__item--djcontrollers" onClick={() => {clickHandleFetch('djcontrollers')}}><span>DJ Controllers</span></Link>
+            <Link style={linkStyle} to="/visimusic/products" className="browse__item browse__item--headphones" onClick={() => {clickHandleFetch('headphones')}}><span>Headphones</span></Link>
+            <Link style={linkStyle} to="/visimusic/products" className="browse__item browse__item--speakers" onClick={() => {clickHandleFetch('speakers')}}><span>Speakers</span></Link>
+            <Link style={linkStyle} to="/visimusic/products" className="browse__item browse__item--speakers" onClick={() => {clickHandleFetch('guitars')}}><span>Guitars</span></Link>
+            <Link style={linkStyle} to="/visimusic/products" className="browse__item browse__item--speakers" onClick={() => {clickHandleFetch('violins')}}><span>Violins</span></Link>
+            <Link style={linkStyle} to="/visimusic/products" className="browse__item browse__item--speakers" onClick={() => {clickHandleFetch('cellos')}}><span>Cellos</span></Link>
+            <Link style={linkStyle} to="/visimusic/products" className="browse__item browse__item--keyboards" onClick={() => {clickHandleFetch('keyboards')}}><span>Keyboards</span></Link>
+            <Link style={linkStyle} to="/visimusic/products" className="browse__item browse__item--microphones" onClick={() => {clickHandleFetch('microphones')}}><span>Microphones</span></Link>
+            <Link style={linkStyle} to="/visimusic/products" className="browse__item browse__item--djcontrollers" onClick={() => {clickHandleFetch('djcontrollers')}}><span>DJ Controllers</span></Link>
 
             <button className="browse__button-close" type="button" onClick={handleClose}>
                 Close

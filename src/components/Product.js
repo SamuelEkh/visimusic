@@ -43,7 +43,7 @@ const Product = ({name, price, description, imgUrl, use, item, username, getCart
 
       item.idInCart = uuid();
   
-      await fetch('/api/carts', {
+      await fetch('/visimusic/carts', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
@@ -72,7 +72,7 @@ const Product = ({name, price, description, imgUrl, use, item, username, getCart
     
     return (
         <div className="product">
-          <Link to={'/product'}>
+          <Link to={'/visimusic/product'}>
             <div className="product__image-container" onClick={clickHandler}>
             <img className="product__image" onLoad={onLoad} src={imgUrl} border='0' alt={name}/>
             </div>
@@ -82,12 +82,12 @@ const Product = ({name, price, description, imgUrl, use, item, username, getCart
               <h3 className="product__desc">{newDesc}</h3>
               <h4 className="product__price">{price}</h4>
                 <div className="product__desc-buttons"></div>
-                  <Link to={'/product'}><button onClick={clickHandler} className="product__show-button">Show</button><br/></Link>
+                  <Link to={'/visimusic/product'}><button onClick={clickHandler} className="product__show-button">Show</button><br/></Link>
                   {username ? 
                   <button onClick={addToCart} className="product__add-button">
                   <div className="product__item-added">Added to cart</div>
                   Add to cart</button> 
-                  : <Link to={'/login'}><button className="product__add-button">Add to cart</button></Link>
+                  : <Link to={'/visimusic/login'}><button className="product__add-button">Add to cart</button></Link>
                 }
 
                 </div>

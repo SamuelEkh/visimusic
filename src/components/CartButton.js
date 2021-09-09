@@ -10,7 +10,7 @@ const CartButton = ({cartProducts, handleBackground, setHamburgerOpen}) => {
   }
 
     return (
-        <Link to="/cart" style={linkStyle} onClick={() => {clickHandler()}}>
+        <Link to="/visimusic/cart" style={linkStyle} onClick={() => {clickHandler()}}>
             {cartProducts.length > 0 && <p className="header__cart-num">{cartProducts.length}</p>}
           <div className="header__cart">
           <svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 0 24 24" width="36px" fill="#FFFFFF" alt='shopping cart icon'>
