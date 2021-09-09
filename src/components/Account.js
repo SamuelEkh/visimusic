@@ -9,9 +9,8 @@ const Account = ({handleLogout, cookies, name, username, email}) => {
   const [thisName, setThisName] = useState('');
 
   const handleClick = () => {
-    handleLogout();
     <Redirect to="/visimusic" />
-/*     window.location.reload(false); */
+    handleLogout();
   }
   
   useEffect(() => {

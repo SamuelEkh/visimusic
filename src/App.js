@@ -57,6 +57,7 @@ const App = () => {
     Cookies.remove('token');
     Cookies.remove('user');
     removeCookie('token');
+    window.location.reload(false);
   }
 
   const getCart = async () => {
