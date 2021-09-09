@@ -11,7 +11,7 @@ const Account = ({handleLogout, cookies, name, username, email}) => {
   const handleClick = () => {
     handleLogout();
     <Redirect to="/visimusic" />
-    window.location.reload(false);
+/*     window.location.reload(false); */
   }
   
   useEffect(() => {
