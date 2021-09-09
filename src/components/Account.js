@@ -23,6 +23,7 @@ const Account = ({handleLogout, cookies, name, username, email}) => {
 
   return (
     <>
+    {!cookies.token && <Redirect to="/visimusic" /> }
     <div className="account-info">
       <h2 className="account-info__name">Hi, {thisName}</h2>
       <div className="account-info__username--title">username</div>
@@ -31,7 +32,6 @@ const Account = ({handleLogout, cookies, name, username, email}) => {
       <div className="account-info__email">{email}</div>
     </div>
     <button onClick={handleClick} className="logout-button">Logout</button>
-    {!cookies.token && <Redirect to="/visimusic" /> }
     </>
   )
 }
