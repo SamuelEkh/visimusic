@@ -146,7 +146,7 @@ const App = () => {
   return (
     <div className='app-container' style={backgroundState}>
     <CookiesProvider>
-    <Router>
+    <Router basename="/visimusic">
       <main className="main-content">
         <Header handleProductState={handleProductState} cookies={cookies} cartProducts={cartProducts} username={username} getCart={getCart} headerBackground={headerBackground} handleBackground={handleBackground} hamburgerOpen={hamburgerOpen} handleHamburger={handleHamburger} setHamburgerOpen={setHamburgerOpen}/>
         <Route exact path="/visimusic" render={() => (
