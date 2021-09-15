@@ -43,7 +43,7 @@ const Product = ({name, price, description, imgUrl, use, item, username, getCart
 
       item.idInCart = uuid();
   
-      await fetch('/visimusic/carts', {
+      await fetch(`${process.env.REACT_APP_SERVER}/visimusic/carts`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
